@@ -1,7 +1,7 @@
 {
     "name": "@trojs/formdata-parser",
-    "version": "0.1.0",
-    "description": "TODO",
+    "version": "0.1.1",
+    "description": "Parse the form data",
     "type": "module",
     "main": "src/form-data.js",
     "files": [
