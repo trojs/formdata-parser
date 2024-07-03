@@ -65,4 +65,4 @@ Types:
     boundary: string;
 }
 ```
-See also the form-data.d.ts file
+See also the src/types.d.ts file
