@@ -6,7 +6,7 @@
     "main": "src/form-data.js",
     "files": [
         "src/form-data.js",
-        "src/form-data.d.ts"
+        "src/types.d.ts"
     ],
     "scripts": {
         "lint": "eslint --config eslint.config.js",

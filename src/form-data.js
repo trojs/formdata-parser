@@ -1,6 +1,6 @@
 
 /**
- * @typedef {import('./form-data.js').FormData} FormData
+ * @typedef {import('./types.d.ts').FormData} FormData
  */
 
 /**
