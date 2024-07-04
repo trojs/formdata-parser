@@ -5,26 +5,26 @@
 
 /**
  * @param {string} file
- * @returns {string}
+ * @returns {string=}
  */
 const getFileName = (file) => {
   const fileName = file.split(`filename="`)
   if (fileName.length > 1) {
-    return fileName[1].split(`"\r\n`)[0]
+    return fileName[1].split('"')[0]
   }
-  throw new Error('No file name')
+  return undefined
 }
 
 /**
  * @param {string} file
- * @returns {string}
+ * @returns {string=}
  */
 const getFileData = (file) => {
   const fileData = file.split(`\r\n\r\n`)
   if (fileData.length > 1) {
     return fileData[1].split(`\r\n`)[0]
   }
-  throw new Error('No file data')
+  return undefined
 }
 
 /**
@@ -34,20 +34,20 @@ const getFileData = (file) => {
 const getField = (file) => {
   const fieldName = file.split(`name="`)
   if (fieldName.length > 1) {
-    return fieldName[1].split(`";`)[0]
+    return fieldName[1].split(`"`)[0]
   }
   throw new Error('No field')
 }
 /**
  * @param {string} file
- * @returns {string}
+ * @returns {string=}
  */
 const getContentType = (file) => {
   const contentType = file.split(`Content-Type: `)
   if (contentType.length > 1) {
     return contentType[1].split(`\r\n`)[0]
   }
-  throw new Error('No content type')
+  return undefined
 }
 
 /**
