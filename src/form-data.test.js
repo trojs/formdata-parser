@@ -9,10 +9,8 @@ const example = {
     '42\n' +
     '\r\n' +
     '-----------------------------12946965154256166883262710838\r\n' +
-    'Content-Disposition: form-data; name="fileName2"; filename="test.xml"\r\n' +
-    'Content-Type: text/xml\r\n' +
+    'Content-Disposition: form-data; name="fileName2"\r\n' +
     '\r\n' +
-    '43\n' +
     '\r\n' +
     '-----------------------------12946965154256166883262710838--\r\n',
   type: 'multipart/form-data; boundary=---------------------------12946965154256166883262710838'
@@ -66,11 +64,11 @@ test('Test the form data helper', async (t) => {
 
     assert.deepEqual(
       response[1].fileData,
-      '43\n'
+      ''
     )
     assert.deepEqual(
       response[1].fileName,
-      'test.xml'
+      undefined
     )
     assert.deepEqual(
       response[1].boundary,
@@ -82,7 +80,7 @@ test('Test the form data helper', async (t) => {
     )
     assert.deepEqual(
       response[1].contentType,
-      'text/xml'
+      undefined
     )
   })
 })

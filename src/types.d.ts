@@ -1,7 +1,7 @@
 export type FormData = {
-    fileName: string;
-    fileData: string;
+    fileName?: string;
+    fileData?: string;
     field: string;
-    contentType: string;
+    contentType?: string;
     boundary: string;
 };
