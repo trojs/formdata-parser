@@ -1,4 +1,3 @@
-
 /**
  * @typedef {import('./types.d.ts').FormData} FormData
  */
@@ -63,7 +62,7 @@ export default (data, header) => {
   }
   const boundary = header.split('boundary=')[1]
   const files = data.split(`--${boundary}`)
-  return files.map(file => {
+  return files.map((file) => {
     if (file === '' || file === '--\r\n') {
       return undefined
     }
@@ -74,5 +73,5 @@ export default (data, header) => {
       contentType: getContentType(file),
       boundary
     }
-  }).filter(file => file !== undefined)
+  }).filter((file) => file !== undefined)
 }
