@@ -2,40 +2,36 @@ import assert from 'node:assert'
 import test from 'node:test'
 import parseFormData from './form-data.js'
 const example = {
-  body: '-----------------------------12946965154256166883262710838\r\n' +
-    'Content-Disposition: form-data; name="fileName"; filename="test.txt"\r\n' +
-    'Content-Type: text/plain\r\n' +
-    '\r\n' +
-    '42\n' +
-    '\r\n' +
-    '-----------------------------12946965154256166883262710838\r\n' +
-    'Content-Disposition: form-data; name="fileName2"\r\n' +
-    '\r\n' +
-    '\r\n' +
-    '-----------------------------12946965154256166883262710838--\r\n',
+  body: '-----------------------------12946965154256166883262710838\r\n'
+    + 'Content-Disposition: form-data; name="fileName"; filename="test.txt"\r\n'
+    + 'Content-Type: text/plain\r\n'
+    + '\r\n'
+    + '42\n'
+    + '\r\n'
+    + '-----------------------------12946965154256166883262710838\r\n'
+    + 'Content-Disposition: form-data; name="fileName2"\r\n'
+    + '\r\n'
+    + '\r\n'
+    + '-----------------------------12946965154256166883262710838--\r\n',
   type: 'multipart/form-data; boundary=---------------------------12946965154256166883262710838'
 }
 
 test('Test the form data helper', async (t) => {
-
   await t.test('It should catch wrong data', async () => {
-
     assert.throws(
       () => {
-        parseFormData( example.body, 'wrong type')
+        parseFormData(example.body, 'wrong type')
       },
-      'Error: Header is not multipart',
-    );
-
+      'Error: Header is not multipart'
+    )
   })
   await t.test('It should catch wrong data', async () => {
-
     assert.throws(
       () => {
-        parseFormData( 'wrong data', example.type)
+        parseFormData('wrong data', example.type)
       },
-      'Error: Wrong value',
-    );
+      'Error: Wrong value'
+    )
   })
 
   await t.test('It should get the data from the body', async () => {

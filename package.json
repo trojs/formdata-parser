@@ -13,8 +13,8 @@
         "lint:report": "eslint --config eslint.config.js -f json -o report.json",
         "lint:fix": "eslint --config eslint.config.js --fix",
         "lint:rules": "eslint --print-config file.js > eslintconfig.json",
-        "test": "c8 node --test",
-        "test:watch": "c8 node --watch --test",
+        "test": "node --test --experimental-test-coverage --test-reporter=spec --test-reporter=lcov --test-reporter-destination=stdout --test-reporter-destination=./coverage/lcov.info",
+        "test:watch": "node --watch --test --experimental-test-coverage --test-reporter=spec --test-reporter=lcov --test-reporter-destination=stdout --test-reporter-destination=./coverage/lcov.info",
         "cpd": "node_modules/jscpd/bin/jscpd src",
         "vulnerabilities": "npm audit --omit=dev"
     },
@@ -44,12 +44,8 @@
         "url": "https://github.com/sponsors/w3nl"
     },
     "devDependencies": {
-        "@eslint/js": "^9.6.0",
-        "@stylistic/eslint-plugin-js": "^2.3.0",
-        "c8": "^10.1.2",
-        "eslint": "^9.6.0",
-        "eslint-plugin-jsdoc": "^50.0.0",
-        "eslint-plugin-sonarjs": "^2.0.0",
+        "@trojs/lint": "^0.2.23",
+        "eslint": "^9.29.0",
         "globals": "^15.8.0",
         "jscpd": "^4.0.5"
     }
